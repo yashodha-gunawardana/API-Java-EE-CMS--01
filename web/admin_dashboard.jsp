@@ -16,6 +16,9 @@
         return;
     }
 
+    String action = request.getParameter("action");
+    boolean showTable = "showComplaints".equals(action);
+    List<Complaint> complaints = ComplaintDAO.getAllComplaints(application);
 
 %>
 
