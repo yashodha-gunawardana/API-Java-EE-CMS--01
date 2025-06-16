@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.dao.UserDAO;
+import org.example.model.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -16,5 +18,10 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         ServletContext servletContext = getServletContext();
+
+        try {
+            User user = UserDAO.findUser(servletContext, email, password);
+
+        }
     }
 }
