@@ -1,4 +1,9 @@
 package org.example.DBCP;
 
-public class DataSource {
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class DataSource implements ServletContextListener {
+
 }
