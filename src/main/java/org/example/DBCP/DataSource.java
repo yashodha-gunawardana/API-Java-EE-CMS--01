@@ -1,5 +1,6 @@
 package org.example.DBCP;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
@@ -18,5 +19,9 @@ public class DataSource implements ServletContextListener {
         ds.setPassword("yash25");
         ds.setInitialSize(5);
         ds.setMaxTotal(30);
+
+        ServletContext servletContext = sce.getServletContext();
+        servletContext.setAttribute("ds", ds);
     }
+
 }
