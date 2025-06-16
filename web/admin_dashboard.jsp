@@ -37,6 +37,25 @@
             Total Complaints: <%= complaints != null ? complaints.size() : 0 %>
         </div>
     </section>
+
+    <% if (showTable) { %>
+    <h2>All Complaints</h2>
+
+    <% if (complaints != null && !complaints.isEmpty()) { %>
+    <table>
+        <thead>
+        <tr>
+            <th>Complaint ID</th>
+            <th>Employee ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Remark</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    </table>
 </div>
 
 </body>
