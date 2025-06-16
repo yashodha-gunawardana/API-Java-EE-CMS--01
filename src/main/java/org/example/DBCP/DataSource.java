@@ -6,6 +6,8 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import java.sql.SQLException;
+
 @WebListener
 public class DataSource implements ServletContextListener {
 
@@ -30,6 +32,11 @@ public class DataSource implements ServletContextListener {
         try {
             ServletContext servletContext = sce.getServletContext();
             BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+
+            ds.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
