@@ -17,5 +17,6 @@ public class DataSource implements ServletContextListener {
         ds.setUsername("root");
         ds.setPassword("yash25");
         ds.setInitialSize(5);
+        ds.setMaxTotal(30);
     }
 }
