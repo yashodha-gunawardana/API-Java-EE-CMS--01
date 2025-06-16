@@ -11,6 +11,7 @@ import org.example.dao.UserDAO;
 import org.example.model.User;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -45,6 +46,9 @@ public class LoginServlet extends HttpServlet {
                 req.setAttribute("errorMessage", "Invalid email or password");
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);
             }
+
+        } catch (SQLException e) {
+            throw new ServletException(e);
         }
     }
 }
