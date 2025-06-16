@@ -26,5 +26,18 @@
     </nav>
 </header>
 
+<div class="container">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1>Welcome, <%= user.getName() %></h1>
+            <p>Admin Dashboard - Manage complaints and system settings</p>
+        </div>
+        <div class="stats-card">
+            Total Complaints: <%= complaints != null ? complaints.size() : 0 %>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>
