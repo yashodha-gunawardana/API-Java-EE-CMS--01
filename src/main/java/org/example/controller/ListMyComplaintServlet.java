@@ -21,7 +21,7 @@ public class ListMyComplaintServlet extends HttpServlet {
 
         // If user is not logged in, redirect to login
         if (user == null) {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("/login.jsp");
             return;
         }
 
