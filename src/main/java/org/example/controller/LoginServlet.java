@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.dao.UserDAO;
 import org.example.model.User;
 
@@ -23,7 +24,10 @@ public class LoginServlet extends HttpServlet {
             User user = UserDAO.findUser(servletContext, email, password);
 
             if (user != null) {
-
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                session.setAttribute("role", user.getRole());
+                session.setAttribute("userId", user.getId());
             }
         }
     }
