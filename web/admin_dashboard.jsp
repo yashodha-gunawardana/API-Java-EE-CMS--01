@@ -99,6 +99,22 @@
                         </form>
                     </form>
                 </td>
+
+                <td>
+                    <div class="action-group">
+
+
+                        <!-- Delete Form -->
+                        <form action="${pageContext.request.contextPath}/deleteComplaint" method="post" class="form-inline">
+                            <input type="hidden" name="complaintId" value="<%= c.getComplaintId() %>" />
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this complaint?');">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <%
+                }
+            %>
         </tbody>
     </table>
 </div>
