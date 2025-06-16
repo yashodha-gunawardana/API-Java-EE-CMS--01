@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doPost (HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String email = req.getParameter("email");
         String password = req.getParameter("password");
@@ -36,8 +37,10 @@ public class LoginServlet extends HttpServlet {
                 } else if ("Employee".equals(user.getRole())) {
                     resp.sendRedirect(req.getContextPath() + "/employee_dashboard.jsp");
                 } else {
-
+                    req.setAttribute("errorMessage", "Unknown role");
+                    req.getRequestDispatcher("/login.jsp").forward(req, resp);
                 }
+
             }
         }
     }
