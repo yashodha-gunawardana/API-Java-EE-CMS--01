@@ -13,5 +13,9 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) {
 
         HttpSession session = req.getSession(false);
+
+        if (session != null) {
+            session.invalidate();
+        }
     }
 }
