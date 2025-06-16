@@ -41,4 +41,7 @@ public class ComplaintDAO {
 
         return complaints;
     }
+
+    public static List<Complaint> getComplaintsByEmployeeId(ServletContext servletContext, int id) {
+    }
 }
