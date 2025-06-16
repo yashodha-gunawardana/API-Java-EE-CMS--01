@@ -12,5 +12,10 @@ public class DataSource implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
 
         BasicDataSource ds = new BasicDataSource();
+        ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/cms");
+        ds.setUsername("root");
+        ds.setPassword("yash25");
+        ds.setInitialSize(5);
     }
 }
