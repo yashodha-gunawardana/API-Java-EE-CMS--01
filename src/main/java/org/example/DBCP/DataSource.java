@@ -24,4 +24,9 @@ public class DataSource implements ServletContextListener {
         servletContext.setAttribute("ds", ds);
     }
 
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+
+    }
+
 }
