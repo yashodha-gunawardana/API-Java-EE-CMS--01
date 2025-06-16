@@ -1,6 +1,9 @@
 <%@ page import="org.example.model.Complaint" %>
 <%@ page import="org.example.model.User" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.dao.ComplaintDAO" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
