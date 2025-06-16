@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpSession;
 import org.example.dao.UserDAO;
 import org.example.model.User;
 
+import java.io.IOException;
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
@@ -28,6 +30,14 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", user);
                 session.setAttribute("role", user.getRole());
                 session.setAttribute("userId", user.getId());
+
+                if ("Admin".equals(user.getRole())) {
+                    resp.sendRedirect(req.getContextPath() + "/admin_dashboard.jsp");
+                } else if ("Employee".equals(user.getRole())) {
+                    resp.sendRedirect(req.getContextPath() + "/employee_dashboard.jsp");
+                } else {
+
+                }
             }
         }
     }
