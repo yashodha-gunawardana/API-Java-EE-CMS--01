@@ -1,4 +1,6 @@
-<%@ page import="org.example.model.Complaint" %><%--
+<%@ page import="org.example.model.Complaint" %>
+<%@ page import="org.example.model.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
@@ -7,6 +9,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%
+    User user = (User) session.getAttribute("user");
+    if (user == null || !"admin".equalsIgnoreCase(user.getRole())) {
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+        return;
+    }
+
+
+%>
 
 <html>
 <head>
