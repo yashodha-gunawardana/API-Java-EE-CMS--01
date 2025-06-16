@@ -75,7 +75,30 @@
                 <td class="<%= statusClass %>"><%= c.getStatus() != null ? c.getStatus() : "Unknown" %></td>
                 <td><%= c.getDate() %></td>
                 <%--            <td><%= c.getRemarks() != null ? c.getRemarks() : "" %></td>--%>
+
                 <td>
+                    <!-- Add Remarks Form -->
+                    <form action="${pageContext.request.contextPath}/updateStatus" method="post" class="form-inline">
+                        <input type="hidden" name="complaintId" value="<%= c.getComplaintId() %>" />
+
+                        <!-- Add Remarks Input -->
+                        <input type="text" name="remarks" placeholder="Remarks" class="btn-sm"
+                               value="<%= c.getRemarks() != null ? c.getRemarks() : "" %>" />
+
+                        <!-- Optional: Add dropdown to change status -->
+                        <select name="status" class="btn-sm">
+                            <option value="Pending" <%= "Pending".equalsIgnoreCase(c.getStatus()) ? "selected" : "" %>>Pending</option>
+                            <option value="In Progress" <%= "In Progress".equalsIgnoreCase(c.getStatus()) ? "selected" : "" %>>In Progress</option>
+                            <option value="Resolved" <%= "Resolved".equalsIgnoreCase(c.getStatus()) ? "selected" : "" %>>Resolved</option>
+                        </select>
+
+                        <!-- Update Form -->
+                        <form action="${pageContext.request.contextPath}/updateStatus" method="post" class="form-inline">
+                            <input type="hidden" name="complaintId" value="<%= c.getComplaintId() %>" />
+                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                        </form>
+                    </form>
+                </td>
         </tbody>
     </table>
 </div>
