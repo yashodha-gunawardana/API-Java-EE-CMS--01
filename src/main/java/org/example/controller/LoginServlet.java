@@ -22,6 +22,9 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = UserDAO.findUser(servletContext, email, password);
 
+            if (user != null) {
+
+            }
         }
     }
 }
