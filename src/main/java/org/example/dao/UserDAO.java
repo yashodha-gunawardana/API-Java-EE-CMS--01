@@ -30,7 +30,11 @@ public class UserDAO {
                 user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
                 return user;
+
+            } else {
+                return null;
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
