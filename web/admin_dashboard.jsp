@@ -117,6 +117,21 @@
             %>
         </tbody>
     </table>
+
+    <% } else { %>
+    <div class="empty-dashboard">
+        <div class="empty-icon">📊</div>
+        <h2 class="empty-message">Your Dashboard is Quiet Today</h2>
+        <p class="empty-subMessage">No complaints have been submitted yet. Enjoy the peace while it lasts!</p>
+        <div>
+            <a href="${pageContext.request.contextPath}/admin_dashboard.jsp?action=showComplaints" class="empty-action">
+                Refresh Complaints
+            </a>
+        </div>
+    </div>
+    <% } %>
+    <% } %>
+
 </div>
 
 </body>
