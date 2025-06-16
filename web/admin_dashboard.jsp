@@ -65,7 +65,17 @@
                 case "resolved" -> "status-resolved";
                 default -> "status-unknown";
             };
-        %>
+            %>
+
+            <tr>
+                <td><%= c.getComplaintId() %></td>
+                <td><%= c.getEmployeeId() %></td>
+                <td><%= c.getTitle() %></td>
+                <td><%= c.getDescription() %></td>
+                <td class="<%= statusClass %>"><%= c.getStatus() != null ? c.getStatus() : "Unknown" %></td>
+                <td><%= c.getDate() %></td>
+                <%--            <td><%= c.getRemarks() != null ? c.getRemarks() : "" %></td>--%>
+                <td>
         </tbody>
     </table>
 </div>
