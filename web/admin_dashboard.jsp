@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.example.model.Complaint" %><%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
@@ -55,6 +55,18 @@
             <th>Actions</th>
         </tr>
         </thead>
+
+        <tbody>
+            <% for (Complaint c : complaints) {
+            String status = (c.getStatus() != null) ? c.getStatus().toLowerCase() : "unknown";
+            String statusClass = switch (status) {
+                case "pending" -> "status-pending";
+                case "in progress" -> "status-in-progress";
+                case "resolved" -> "status-resolved";
+                default -> "status-unknown";
+            };
+        %>
+        </tbody>
     </table>
 </div>
 
