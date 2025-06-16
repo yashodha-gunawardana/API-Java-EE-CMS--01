@@ -1,0 +1,259 @@
+:root {
+    --primary: #008080;
+    --primary-light: #a7c7c7;
+    --accent: #36454f;
+    --light: #f0f8ff;
+    --success: #2e8b57;
+    --warning: #ffa500;
+    --danger: #cd5c5c;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --text-dark: #333333;
+    --text-light: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    max-width: 1500px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.welcome-section {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--accent);
+}
+
+.welcome-text h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+    color: var(--text-light);
+}
+
+.stats-card {
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+th {
+    background-color: var(--accent);
+    color: var(--white);
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: var(--primary-light);
+}
+
+option {
+    padding: 0.5rem;
+    background-color: var(--white);
+    color: var(--accent);
+}
+
+option:hover {
+    background-color: var(--primary-light) !important;
+}
+
+option[value="Pending"] {
+    color: var(--warning);
+    font-weight: 500;
+}
+
+option[value="In Progress"] {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+option[value="Resolved"] {
+    color: var(--success);
+    font-weight: 500;
+}
+
+option:checked {
+    background-color: var(--primary-light);
+    font-weight: 500;
+}
+
+.action-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #006666;
+    transform: translateY(-1px);
+}
+
+/*   .btn-success {
+       background-color: var(--success);
+       color: var(--white);
+   }
+
+   .btn-success:hover {
+       background-color: #26734d;
+       transform: translateY(-1px);
+   }*/
+
+.btn-danger {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background-color: #b35252;
+    transform: translateY(-1px);
+}
+
+select, input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid var(--primary-light);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    background-color: var(--white);
+}
+
+.form-inline {
+    display: inline;
+}
+
+.empty-dashboard {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    border: 1px dashed var(--primary-light);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.empty-message {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.empty-subMessage {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.empty-action {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.empty-action:hover {
+    background-color: #006666;
+    transform: translateY(-2px);
+}
