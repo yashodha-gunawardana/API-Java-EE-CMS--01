@@ -27,6 +27,10 @@ public class DataSource implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
 
+        try {
+            ServletContext servletContext = sce.getServletContext();
+            BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+        }
     }
 
 }
