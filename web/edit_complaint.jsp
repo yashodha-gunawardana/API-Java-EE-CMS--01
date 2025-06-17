@@ -1,4 +1,5 @@
-<%@ page import="org.example.model.Complaint" %><%--
+<%@ page import="org.example.model.Complaint" %>
+<%@ page import="org.example.dao.ComplaintDAO" %><%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
@@ -11,6 +12,10 @@
     String idParam = request.getParameter("complaintId");
     Complaint complaint = null;
 
+    if (idParam != null) {
+        int complaintId = Integer.parseInt(idParam);
+        complaint = ComplaintDAO.getComplaintById(application, complaintId);
+    }
 
 %>
 
