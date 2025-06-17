@@ -33,6 +33,12 @@ public class SaveComplaintServlet extends HttpServlet {
         String status = "Pending"; // default status on new complaint
         String date = req.getParameter("date");
 
+        Complaint complaint = new Complaint();
+        complaint.setEmployeeId(employeeId);
+        complaint.setTitle(title);
+        complaint.setDescription(description);
+        complaint.setStatus(status);
+        complaint.setDate(date);
 
 
 
