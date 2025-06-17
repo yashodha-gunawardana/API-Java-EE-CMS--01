@@ -156,6 +156,9 @@ public class ComplaintDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public static void editComplaint(ServletContext servletContext, Complaint updated) {
+    }
 }
 
 

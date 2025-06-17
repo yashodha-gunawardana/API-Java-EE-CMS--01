@@ -44,6 +44,8 @@ public class EditComplaintServlet extends HttpServlet {
             updated.setEmployeeId(user.getId());
 
             ComplaintDAO.editComplaint(getServletContext(), updated);
+
+            resp.sendRedirect("employee_dashboard.jsp");
         }
     }
 }
