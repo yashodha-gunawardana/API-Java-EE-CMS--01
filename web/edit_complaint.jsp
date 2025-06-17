@@ -27,6 +27,7 @@
 
     User user = (User) session.getAttribute("user");
 %>
+
 <html>
 <head>
 
