@@ -143,8 +143,18 @@ public class ComplaintDAO {
     }
 
 
+    public static void deleteComplaint(ServletContext servletContext,int complaintId) {
+        BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
 
-    public static void deleteComplaint(ServletContext servletContext, int complaintId) {
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM complaint WHERE complaint_id=?");
+            pstm.setInt(1, complaintId);
+            pstm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
