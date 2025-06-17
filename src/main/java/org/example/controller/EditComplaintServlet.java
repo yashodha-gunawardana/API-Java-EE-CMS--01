@@ -22,5 +22,9 @@ public class EditComplaintServlet extends HttpServlet {
             resp.sendRedirect("error_message.jsp");
             return;
         }
+
+        int complaintId = Integer.parseInt(req.getParameter("complaintId"));
+        String description = req.getParameter("description");
+        String date = req.getParameter("date");
     }
 }
