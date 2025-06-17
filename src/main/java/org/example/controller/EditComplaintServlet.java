@@ -31,6 +31,11 @@ public class EditComplaintServlet extends HttpServlet {
 
         try {
             Complaint existing = ComplaintDAO.getComplaintById(getServletContext(), complaintId);
+
+            if (existing == null || existing.getEmployeeId() != user.getId() || "Resolved".equalsIgnoreCase(existing.getStatus())) {
+                resp.sendRedirect("error_message.jsp");
+                return;
+            }
         }
     }
 }
