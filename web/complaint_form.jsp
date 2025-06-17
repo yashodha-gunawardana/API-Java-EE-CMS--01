@@ -83,7 +83,22 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Set default date to today
+    document.getElementById('date').valueAsDate = new Date();
 
+    // Update status badge color when selection changes
+    document.getElementById('status').addEventListener('change', function() {
+        const select = this;
+        select.className = 'form-select';
+
+        if(select.value === 'Pending') {
+            select.classList.add('status-pending');
+        } else {
+            select.classList.add('status-resolved');
+        }
+    });
+</script>
 
 </body>
 </html>
