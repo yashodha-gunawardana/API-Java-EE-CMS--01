@@ -75,8 +75,27 @@ public class ComplaintDAO {
         return complaints;
     }
 
+
     public static void saveComplaint(ServletContext servletContext, Complaint complaint) {
+        BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("INSERT INTO complaint (employee_id, title, description, status, date) VALUES (?, ?, ?, ?, ?)");
+            pstm.setInt(1, complaint.getEmployeeId());
+            pstm.setString(2, complaint.getTitle());
+            pstm.setString(3, complaint.getDescription());
+            pstm.setString(4, complaint.getStatus());
+            pstm.setString(5, complaint.getDate());
+            pstm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
+
+
 }
 
 
