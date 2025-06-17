@@ -42,6 +42,8 @@ public class EditComplaintServlet extends HttpServlet {
             updated.setDescription(description);
             updated.setDate(date);
             updated.setEmployeeId(user.getId());
+
+            ComplaintDAO.editComplaint(getServletContext(), updated);
         }
     }
 }
