@@ -36,6 +36,12 @@ public class EditComplaintServlet extends HttpServlet {
                 resp.sendRedirect("error_message.jsp");
                 return;
             }
+
+            Complaint updated = new Complaint();
+            updated.setComplaintId(complaintId);
+            updated.setDescription(description);
+            updated.setDate(date);
+            updated.setEmployeeId(user.getId());
         }
     }
 }
