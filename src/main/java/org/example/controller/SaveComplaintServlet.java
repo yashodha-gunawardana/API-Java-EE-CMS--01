@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SaveComplaintServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         HttpSession session = req.getSession(false);
 
@@ -40,6 +40,12 @@ public class SaveComplaintServlet extends HttpServlet {
         complaint.setStatus(status);
         complaint.setDate(date);
 
+        try {
+            ComplaintDAO.saveComplaint(getServletContext(), complaint);
+            resp.sendRedirect(req.getContextPath() + "/employee_dashboard.jsp");
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
 
 
     }
