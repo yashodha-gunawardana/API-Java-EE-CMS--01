@@ -75,6 +75,8 @@ public class ComplaintDAO {
         return complaints;
     }
 
+    public static void saveComplaint(ServletContext servletContext, Complaint complaint) {
+    }
 }
 
 
