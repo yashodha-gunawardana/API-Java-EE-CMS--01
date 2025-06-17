@@ -17,9 +17,13 @@
         complaint = ComplaintDAO.getComplaintById(application, complaintId);
     }
 
+    if (complaint == null) {
 %>
-
-
+<h3>Complaint not found.</h3>
+<%
+        return;
+    }
+%>
 <html>
 <head>
 
