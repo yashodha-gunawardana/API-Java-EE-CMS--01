@@ -157,8 +157,25 @@ public class ComplaintDAO {
         }
     }
 
-    public static void editComplaint(ServletContext servletContext, Complaint updated) {
+
+    public static void editComplaint(ServletContext servletContext,Complaint complaint) {
+        BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement("UPDATE complaint SET description = ?, date = ? WHERE complaint_id = ? AND employee_id = ?");
+            pstmt.setString(1, complaint.getDescription());
+            pstmt.setString(2, complaint.getDate());
+            pstmt.setInt(3, complaint.getComplaintId());
+            pstmt.setInt(4, complaint.getEmployeeId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+
 }
 
 

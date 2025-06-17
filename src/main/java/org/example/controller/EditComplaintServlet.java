@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,12 +11,13 @@ import org.example.model.Complaint;
 import org.example.model.User;
 
 import java.io.IOException;
+import java.rmi.ServerException;
 
 @WebServlet("/editComplaint")
 public class EditComplaintServlet extends HttpServlet {
 
     @Override
-    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
@@ -46,6 +48,9 @@ public class EditComplaintServlet extends HttpServlet {
             ComplaintDAO.editComplaint(getServletContext(), updated);
 
             resp.sendRedirect("employee_dashboard.jsp");
+
+        } catch (Exception e) {
+            throw new ServletException(e);
         }
     }
 }
