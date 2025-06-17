@@ -1,6 +1,4 @@
-<%@ page import="org.example.dao.ComplaintDAO" %>
-<%@ page import="org.example.model.Complaint" %>
-<%@ page import="org.example.model.User" %><%--
+<%@ page import="org.example.model.Complaint" %><%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
@@ -8,6 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    String idParam = request.getParameter("complaintId");
+    Complaint complaint = null;
+
+
+%>
 
 
 <html>
