@@ -1,5 +1,6 @@
 <%@ page import="org.example.model.Complaint" %>
-<%@ page import="org.example.dao.ComplaintDAO" %><%--
+<%@ page import="org.example.dao.ComplaintDAO" %>
+<%@ page import="org.example.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Yashoda
   Date: 6/16/2025
@@ -23,6 +24,8 @@
 <%
         return;
     }
+
+    User user = (User) session.getAttribute("user");
 %>
 <html>
 <head>
