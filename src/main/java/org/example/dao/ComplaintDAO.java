@@ -112,6 +112,40 @@ public class ComplaintDAO {
         }
     }
 
+
+    public static Complaint getComplaintById(ServletContext servletContext, int complaintId) {
+        BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+//        List<Complaint> complaints = new ArrayList<>();
+
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("SELECT * FROM complaint WHERE complaint_id = ?");
+            pstm.setInt(1, complaintId);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                Complaint complaint = new Complaint();
+                complaint.setComplaintId(rs.getInt("complaint_id"));
+                complaint.setEmployeeId(rs.getInt("employee_id"));
+                complaint.setTitle(rs.getString("title"));
+                complaint.setDescription(rs.getString("description"));
+                complaint.setStatus(rs.getString("status"));
+                complaint.setDate(rs.getString("date"));
+
+                return complaint;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return null;
+    }
+
+
+
+    public static void deleteComplaint(ServletContext servletContext, int complaintId) {
+    }
 }
 
 
