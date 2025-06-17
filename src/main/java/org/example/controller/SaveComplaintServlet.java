@@ -27,6 +27,13 @@ public class SaveComplaintServlet extends HttpServlet {
             return;
         }
 
+        int employeeId = (Integer) session.getAttribute("userId"); // get logged-in employee id
+        String title = req.getParameter("title");
+        String description = req.getParameter("description");
+        String status = "Pending"; // default status on new complaint
+        String date = req.getParameter("date");
+
+
 
 
     }
