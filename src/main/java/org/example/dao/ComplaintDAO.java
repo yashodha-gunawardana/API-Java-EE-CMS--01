@@ -96,6 +96,8 @@ public class ComplaintDAO {
     }
 
 
+    public static void updateStatusAndRemark(ServletContext servletContext, int complaintId, String status, String remarks) {
+    }
 }
 
 
