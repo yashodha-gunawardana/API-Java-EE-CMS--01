@@ -96,8 +96,22 @@ public class ComplaintDAO {
     }
 
 
-    public static void updateStatusAndRemark(ServletContext servletContext, int complaintId, String status, String remarks) {
+    public static void updateStatusAndRemark(ServletContext servletContext,int complaintId, String status, String remarks) {
+        BasicDataSource ds = (BasicDataSource) servletContext.getAttribute("ds");
+
+        try {
+            Connection connection = ds.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("UPDATE complaint SET status = ?, remarks = ? WHERE complaint_id = ?");
+            pstm.setString(1, status);
+            pstm.setString(2, remarks);
+            pstm.setInt(3, complaintId);
+            pstm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }
 
 
