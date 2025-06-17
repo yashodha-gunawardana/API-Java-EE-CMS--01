@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.example.dao.ComplaintDAO;
+import org.example.model.Complaint;
 import org.example.model.User;
 
 import java.io.IOException;
@@ -26,5 +28,9 @@ public class EditComplaintServlet extends HttpServlet {
         int complaintId = Integer.parseInt(req.getParameter("complaintId"));
         String description = req.getParameter("description");
         String date = req.getParameter("date");
+
+        try {
+            Complaint existing = ComplaintDAO.getComplaintById(getServletContext(), complaintId);
+        }
     }
 }
