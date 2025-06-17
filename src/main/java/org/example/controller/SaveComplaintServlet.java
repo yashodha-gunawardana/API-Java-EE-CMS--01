@@ -1,19 +1,32 @@
 package org.example.controller;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.example.dao.ComplaintDAO;
+import org.example.model.Complaint;
+import org.example.model.User;
+
+import java.io.IOException;
 
 
 @WebServlet("/addComplaint")
 public class SaveComplaintServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         HttpSession session = req.getSession(false);
+
+        User user = (User) session.getAttribute("user");
+        if (user == null || !"Employee".equals(user.getRole())) {
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
+            return;
+        }
+
 
 
     }
