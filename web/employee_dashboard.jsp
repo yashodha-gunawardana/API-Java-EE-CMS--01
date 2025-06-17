@@ -26,7 +26,7 @@
 <head>
 
     <title>Employee Dashboard</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="style/css.css">
 
 </head>
 <body>

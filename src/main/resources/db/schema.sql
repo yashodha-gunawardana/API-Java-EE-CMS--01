@@ -4,10 +4,10 @@ USE cms;
 
 CREATE TABLE user (
      id INT PRIMARY KEY AUTO_INCREMENT,
-     name VARCHAR(100) NOT NULL,
-     email VARCHAR(100) UNIQUE NOT NULL,
-     password VARCHAR(100) NOT NULL,
-     role VARCHAR(50) NOT NULL
+     name VARCHAR(100),
+     email VARCHAR(100),
+     password VARCHAR(100),
+     role VARCHAR(50)
 );
 
 CREATE TABLE complaint (
