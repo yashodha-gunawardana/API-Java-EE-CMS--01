@@ -34,6 +34,79 @@
     <title>Edit Complaint</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-light: #a7c7c7;
+            --accent: #36454f;
+            --light: #f0f8ff;
+            --success: #2e8b57;
+            --warning: #ffa500;
+            --danger: #cd5c5c;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .complaint-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #006666;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 0.25rem rgba(0, 128, 128, 0.25);
+        }
+    </style>
+
 </head>
 <body>
 
@@ -54,7 +127,7 @@
         </div>
 
         <div class="card-body">
-            <form action="editComplaint" method="post">
+            <form action="${pageContext.request.contextPath}/edit_complaint.jsp" method="post">
                 <input type="hidden" name="complaintId" value="<%= complaint.getComplaintId() %>">
                 <input type="hidden" name="employeeId" value="<%= user.getId() %>">
 

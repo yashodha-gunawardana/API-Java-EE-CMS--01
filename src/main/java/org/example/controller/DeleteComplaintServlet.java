@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import org.example.dao.ComplaintDAO;
@@ -10,10 +9,10 @@ import org.example.model.User;
 import java.io.IOException;
 
 @WebServlet("/deleteComplaint")
-public class DeleteComplaintServer extends HttpServlet {
+public class DeleteComplaintServlet extends HttpServlet {
 
     @Override
-    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int complaintId = Integer.parseInt(req.getParameter("complaintId"));
 
         HttpSession session = req.getSession();
