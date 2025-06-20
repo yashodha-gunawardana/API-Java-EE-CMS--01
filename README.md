@@ -153,3 +153,26 @@ git push origin main
 ## 📸 Login Page
 ![Login Page](web/assets/login-page.png)
 
+
+## 📸 Employee Dashboard
+![Employee Dashboard](web/assets/employee-dashboard.png)
+
+
+## 📸 New Complaint Page
+![New Complaint Page](web/assets/add-complaint.png)
+
+
+## 📸 My Complaint Page
+![My Complaint Page](web/assets/my-complaint.png)
+
+
+## 📸 Edit Complaint Page
+![Edit Complaint Page](web/assets/edit-complaint.png)
+
+
+## 📸 Admin Dashboard Page
+![Admin Dashboard Page](web/assets/admin-dashboard.png)
+
+
+## 📸 All Complaint Page
+![All Complaint Page](web/assets/all-complaint.png)
