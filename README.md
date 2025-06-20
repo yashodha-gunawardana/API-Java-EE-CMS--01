@@ -33,4 +33,17 @@ All HTTP interactions are handled via synchronous HTML form submissions using GE
 
 
 
+## 🧱 Application Architecture (MVC)
+The system follows the Model-View-Controller (MVC) pattern:
+
+- **Model**: JavaBeans and DAO handle data access and business logic
+- **View**: JSP pages (e.g., `login.jsp`, `employee_dashboard.jsp`) render the UI and collect form input.
+- **Controller**: Java Servlets handle form submission and control the flow between Model and View.
+
+# workflow:
+  User (JSP Form) → Servlet (Controller) → DAO (Model) → Database  
+                                     ↑  
+                            Response (Redirect/Forward to JSP)
+
+
 
